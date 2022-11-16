@@ -2,14 +2,25 @@
 <html lang="en" dir="ltr">
 
   <head>
-    <%- include('./partials/header') -%>
+    <%- include('partials/header') -%>
   </head>
 
   <body>
     <div class="container">
-      <p>some content here with imports</p>
+      <% content.forEach((item) => { %>
+        <h1><%= item.title %></h1>
+        <% if (item.body.length > 100 ) { %>
+          <p>
+            <%= item.body.substring(0,100) + '...' %>
+            <%# hyperlink can simply be <a href="/posts/item.title">Read More</a> #%>
+            <a href="/posts/<%= item.title.replaceAll(' ', '-').toLowerCase() %>">Read More</a>
+          </p>
+         <% } else { %> <%# else is on same line as closing if, otherwise raises error #%>
+          <%= item.body %>
+        <% } %> 
+      <% }); %>
     </div>
-    <%- include('./partials/footer') -%>
+    <%- include('partials/footer') -%>
   </body>
 </html>
 
