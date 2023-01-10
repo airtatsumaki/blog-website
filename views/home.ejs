@@ -13,7 +13,6 @@
           <p>
             <%= item.body.substring(0,100) + '...' %>
             <%# hyperlink can simply be <a href="/posts/item.title">Read More</a> #%>
-            <%# <a href="/posts/<%= item.title.replaceAll(' ', '-').toLowerCase() %>">Read More</a> #%>
             <a href="/posts/<%= item.title %>">Read More</a>
           </p>
          <% } else { %> <%# else is on same line as closing if, otherwise raises error #%>
